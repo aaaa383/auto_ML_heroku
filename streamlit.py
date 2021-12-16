@@ -23,7 +23,7 @@ uploaded_file = st.sidebar.file_uploader("CSVファイルをドラッグ&ドロ�
 if uploaded_file is not None:
 
     #データの読込み
-    df = pd.read_csv(uploaded_file, encoding="shift-jis")
+    df = pd.read_csv(uploaded_file, engine="python")
 
     #object型をcategory型に変更
     df.loc[:, df.dtypes == 'object'] = df.select_dtypes(['object']).apply(lambda x: x.astype('category'))
